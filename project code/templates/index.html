@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriVision AI - Sesame Crop & Weed Detection System</title>
+  <meta name="description"
+    content="AI-Powered Sesame Crop and Weed Detection System for Precision Targeted Pesticide Spraying using YOLO Object Detection.">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3M12,19A7,7 0 0,1 5,12A7,7 0 0,1 12,5A7,7 0 0,1 19,12A7,7 0 0,1 12,19M13,17H11V15H13V17M13,13H11V7H13V13Z" />
+        </svg>
+      </div>
+      <span>AgriVision <span style="color: var(--accent-crop);">AI</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#pipeline">Data Pipeline</a></li>
+      <li><a href="#studio">AI Studio</a></li>
+      <li><a href="#simulator">Spray Simulator</a></li>
+      <li><a href="#problem">Problem & Aim</a></li>
+    </ul>
+
+    <div class="live-badge">
+      <div class="pulse-dot"></div>
+      <span>AI MODEL ACTIVE</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-container">
+
+    <!-- Hero Banner -->
+    <section class="hero" id="overview">
+      <div>
+        <span class="hero-tag"></span>
+        <h1 class="hero-title">Sesame Crop & Weed Detection System</h1>
+        <p class="hero-desc">
+          High-precision object detection for selective pesticide application. By identifying exact weed locations while
+          protecting sesame crops, our AI system reduces chemical usage by up to <strong>85%</strong> and prevents toxic
+          crop contamination.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-num highlight" id="statTotalImages">1,300</div>
+            <div class="metric-label">Dataset Images</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-num" id="statTotalAnnotations">2,072</div>
+            <div class="metric-label">YOLO Labels</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-num highlight" id="statCropCount">1,212</div>
+            <div class="metric-label">Sesame Crops</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-num" id="statWeedCount" style="color: var(--accent-weed);">860</div>
+            <div class="metric-label">Detected Weeds</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; position: relative;">
+        <div
+          style="background: rgba(16, 185, 129, 0.05); border: 1px solid var(--border-active); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-glow);">
+          <div
+            style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-crop); margin-bottom: 8px;">[
+            TARGETED SPRAY EFFICIENCY ]</div>
+          <div style="font-size: 3.5rem; font-weight: 800; color: #fff; font-family: var(--font-mono);">78.4%</div>
+          <div style="font-size: 0.95rem; color: var(--text-muted); margin-top: 4px;">Pesticide Chemical Saved per
+            Hectare</div>
+          <div
+            style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-around; font-size: 0.85rem;">
+            <div><span style="color: var(--text-dim);">Traditional:</span> <strong>25 L/ha</strong></div>
+            <div><span style="color: var(--text-dim);">AgriVision AI:</span> <strong
+                style="color: var(--accent-crop);">5.4 L/ha</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Preparation Pipeline -->
+    <section style="margin-bottom: 3.5rem;" id="pipeline">
+      <div class="section-title-wrap">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-crop)" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg>
+          Data Preparation Workflow
+        </h2>
+        <p class="section-subtitle">5-Stage data engineering pipeline from high-res field capture to YOLO bounding box
+          annotations</p>
+      </div>
+
+      <div class="pipeline-grid" id="pipelineContainer">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- AI Detection Studio Workspace -->
+    <section id="studio">
+      <div class="section-title-wrap">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-crop)" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v8M8 12h8" />
+          </svg>
+          AI Object Detection Studio
+        </h2>
+        <p class="section-subtitle">Upload custom field imagery or select from the 1,300 dataset sample images</p>
+      </div>
+
+      <div class="studio-grid">
+        <!-- Control Panel Sidebar -->
+        <div class="control-panel">
+          <div>
+            <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px;">Input Source</h3>
+
+            <!-- File Upload Dropzone -->
+            <div class="upload-dropzone" id="dropzone">
+              <svg class="dropzone-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Drag & Drop Field Image Here</p>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 4px;">Supports JPG, JPEG, PNG (512x512)
+              </p>
+              <input type="file" id="fileInput" accept="image/*" style="display: none;">
+              <button class="upload-btn">Browse Files</button>
+            </div>
+          </div>
+
+          <!-- Dataset Sample Picker -->
+          <div class="sample-selector">
+            <h3 style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">Or Select Dataset Sample (1,300
+              Images):</h3>
+            <div class="sample-chips-container" id="sampleChipsContainer">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Viewport & Analytics Screen -->
+        <div class="viewport-card">
+          <div class="viewport-toolbar">
+            <div class="tab-group">
+              <button class="tab-btn active" id="tabAnnotated">Detection Bounding Boxes</button>
+              <button class="tab-btn" id="tabSpray">Spray Target Simulation</button>
+            </div>
+
+            <div style="display: flex; gap: 16px; align-items: center; font-size: 0.85rem;">
+              <span style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 12px; height: 12px; background: var(--accent-crop); border-radius: 2px;"></span>
+                Sesame Crop
+              </span>
+              <span style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 12px; height: 12px; background: var(--accent-weed); border-radius: 2px;"></span>
+                Weed Target
+              </span>
+            </div>
+          </div>
+
+          <!-- Viewport Screen Box -->
+          <div class="screen-box">
+            <div class="loader-overlay" id="loaderOverlay">
+              <div class="spinner"></div>
+              <span style="color: var(--accent-crop); font-family: var(--font-mono); font-weight: 600;">Running AI
+                Object Detection...</span>
+            </div>
+            <img id="viewportImage" src="" alt="Detection Output">
+          </div>
+
+          <!-- Live Analysis Cards -->
+          <div class="analysis-panel">
+            <div class="stat-pill">
+              <div class="stat-icon crop">🌱</div>
+              <div class="stat-info">
+                <h4 id="analysisCrops">0</h4>
+                <p>Sesame Crops</p>
+              </div>
+            </div>
+
+            <div class="stat-pill">
+              <div class="stat-icon weed">🌾</div>
+              <div class="stat-info">
+                <h4 id="analysisWeeds" style="color: var(--accent-weed);">0</h4>
+                <p>Weed Targets</p>
+              </div>
+            </div>
+
+            <div class="stat-pill">
+              <div class="stat-icon savings">⚡</div>
+              <div class="stat-info">
+                <h4 id="analysisSavings">0%</h4>
+                <p>Pesticide Saved</p>
+              </div>
+            </div>
+
+            <div class="stat-pill">
+              <div class="stat-icon liters">💧</div>
+              <div class="stat-info">
+                <h4 id="analysisTargetLiters">0 L/ha</h4>
+                <p>Targeted Spray Vol</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Targeted Spray Simulator -->
+    <section id="simulator">
+      <div class="section-title-wrap">
+        <h2 class="section-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-crop)" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+          Precision Targeted Pesticide Spray Simulator
+        </h2>
+        <p class="section-subtitle">Real-time smart boom nozzle actuation demonstrating zero chemical contact with
+          sesame crops</p>
+      </div>
+
+      <div class="simulator-card">
+        <div class="simulator-canvas-box" id="sprayCanvasBox">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement & Aim -->
+    <section id="problem" style="margin-bottom: 3.5rem;">
+      <div class="hero" style="margin-bottom: 0;">
+        <div>
+          <span class="hero-tag" style="color: var(--accent-weed);">Problem </span>
+          <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">The Challenge of Weeds in Agriculture</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+            Weed is an unwanted plant in agricultural fields that aggressively consumes nutrients, water, sunlight, and
+            soil vitality intended for sesame crops. This results in reduced crop yield and financial loss for farmers.
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            Conventional farming relies on blanket pesticide spraying across the entire field. This leads to massive
+            chemical waste, high costs, toxic runoff into soil, and pesticide residues clinging to crops which pose
+            severe health risks to human consumers.
+          </p>
+        </div>
+
+        <div>
+          <span class="hero-tag" style="color: var(--accent-crop);">Aim</span>
+          <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Our AI Precision Solution</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+            We aim to develop a smart AI vision system that detects precise bounding box locations of weeds and crops,
+            enabling robotic sprayers to trigger micro-jets <strong>only on weeds</strong> while bypassing crops.
+          </p>
+          <ul style="color: var(--accent-crop); font-size: 0.95rem; line-height: 1.8; padding-left: 1.2rem;">
+            <li>Reduces pesticide wastage by 70% – 85%</li>
+            <li>Eliminates chemical contamination on human food crops</li>
+            <li>Protects soil microbiome and water tables</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+
+</html>
