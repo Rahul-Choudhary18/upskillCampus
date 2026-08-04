@@ -37,7 +37,8 @@ An end-to-end computer vision and machine learning platform for precision agricu
 ├── dataset/                # Images and YOLO annotations
 ├── static/                 # CSS & JavaScript files
 └── templates/              # Dashboard HTML template
-🚀 Quick Start
+
+## Quick Start
 1. Clone & Setup
 Bash
 git clone [https://github.com/your-username/crop-weed-detection.git](https://github.com/your-username/crop-weed-detection.git)
